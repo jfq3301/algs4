@@ -5,6 +5,9 @@ Thumbs.db
 # Thumbnails
 ._*
 
+#win exe file
+*.exe
+
 ### Java ###
 *.class
 
