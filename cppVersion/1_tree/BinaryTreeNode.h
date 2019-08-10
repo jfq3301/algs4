@@ -26,10 +26,10 @@ public:
         mRightChild = r;
     }
 
-private:
+public:
     T data;
     BinaryTreeNode<T> * mLeftChild;
     BinaryTreeNode<T> * mRightChild;
-}
+};
 
 #endif
