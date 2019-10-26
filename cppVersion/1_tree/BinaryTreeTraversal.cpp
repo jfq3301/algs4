@@ -108,5 +108,39 @@ int main(void) {
     cout << endl;
 
 
+    BinaryTreeNode<char> * cx;
+    BinaryTreeNode<char> * cy;
+    BinaryTreeNode<char> * cz;
+    BinaryTreeNode<char> * cy1;
+    BinaryTreeNode<char> * cy2;
+    BinaryTreeNode<char> * cz1;
+    BinaryTreeNode<char> * cz2;
+
+
+    cy1 = new BinaryTreeNode<char> ('a');
+    cy2 = new BinaryTreeNode<char> ('b');
+    cz1 = new BinaryTreeNode<char> ('c');
+    cz2 = new BinaryTreeNode<char> ('d');
+    cy = new BinaryTreeNode<char> ('*', cy1, cy2);
+    cz = new BinaryTreeNode<char> ('/', cz1, cz2);
+    cx = new BinaryTreeNode<char> ('+', cy, cz);
+
+    cout << "PreOrder traversal result: ";
+    PreOrder(cx);
+    cout << endl;
+
+    cout << "InOrder traversal result: ";
+    InOrder(cx);
+    cout << endl;
+
+    cout << "PostOrder traversal result: ";
+    PostOrder(cx);
+    cout << endl;
+
+    cout << "LevelOrder traversal result: ";
+    LevelOrder(cx);
+    cout << endl;
+
+
     return 0;
 }

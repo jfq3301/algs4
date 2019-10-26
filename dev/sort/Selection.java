@@ -20,6 +20,13 @@
  *  all bad bed bug dad ... yes yet zoo    [ one string per line ]
  *
  ******************************************************************************/
+/**
+ * @brief selection
+ *     Test pass.
+ * @author fjiang2
+ * @date 2019.10.26
+ */
+
 
 import java.util.Comparator;
 
@@ -52,7 +59,9 @@ public class Selection {
                     min = j;
                 }
             }
+            //System.out.println("Selection sort before, a[i]=" + a[i] + ", a[min]=" + a[min]);
             exch(a, i, min);
+            //System.out.println("Selection sort after, a[i]=" + a[i] + ", a[min]=" + a[min]);
             assert isSorted(a, 0, i);
         }
         assert isSorted(a);
@@ -88,6 +97,43 @@ public class Selection {
         assert isSorted(a, comparator);
     }
 
+    // /**
+    //  * Rearranges the array in ascending order, using the natural order.
+    //  * @param a the array to be sorted
+    //  */
+    // public static void sort(Comparable[] a) {
+    //     int n = a.length;
+    //     for (int i = 0; i < n; i++) {
+    //         int min = i;
+    //         for (int j = i+1; j < n; j++) {
+    //             if (less(a[j], a[min])) min = j;
+    //         }
+    //         exch(a, i, min);
+    //         assert isSorted(a, 0, i);
+    //     }
+    //     assert isSorted(a);
+    // }
+
+    // /**
+    //  * Rearranges the array in ascending order, using a comparator.
+    //  * @param a the array
+    //  * @param comparator the comparator specifying the order
+    //  */
+    // public static void sort(Object[] a, Comparator comparator) {
+    //     int n = a.length;
+    //     for (int i = 0; i < n; i++) {
+    //         int min = i;
+    //         for (int j = i+1; j < n; j++) {
+    //             if (less(comparator, a[j], a[min])) min = j;
+    //         }
+    //         exch(a, i, min);
+    //         assert isSorted(a, comparator, 0, i);
+    //     }
+    //     assert isSorted(a, comparator);
+    // }
+
+
+
    /***************************************************************************
     *  Helper sorting functions.
     ***************************************************************************/
@@ -97,7 +143,7 @@ public class Selection {
     }
 
     private static boolean less(Comparator comparator, Object v, Object w) {
-        return comparator.compare(v, w);
+        return comparator.compare(v, w) < 0;
     }
 
     private static void exch(Object[] a, int i, int j) {
@@ -153,13 +199,12 @@ public class Selection {
         return true;
     }
 
-
-
     // print array to standard output
     private static void show(Comparable[] a) {
         for (int i = 0; i < a.length; i++) {
-            StdOut.println(a[i]);
+            System.out.print(a[i] + ", ");
         }
+        System.out.println("");
     }
 
     /**
@@ -171,6 +216,7 @@ public class Selection {
     public static void main(String[] args) {
         System.out.println("Selection sort");
         String[] a = StdIn.readAllStrings();
+        show(a);
         Selection.sort(a);
         show(a);
     }
